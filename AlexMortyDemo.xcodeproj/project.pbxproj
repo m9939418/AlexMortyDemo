@@ -11,6 +11,9 @@
 		08757EBA29C943DF008FEC47 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EB929C943DF008FEC47 /* CharacterViewController.swift */; };
 		08757EBC29C94414008FEC47 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EBB29C94414008FEC47 /* SettingsViewController.swift */; };
 		08757EBF29C9444F008FEC47 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EBE29C9444F008FEC47 /* EpisodeViewController.swift */; };
+		08757EC229C9A0BC008FEC47 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EC129C9A0BC008FEC47 /* APIService.swift */; };
+		08757EC429C9A0DE008FEC47 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EC329C9A0DE008FEC47 /* Request.swift */; };
+		08757EC629C9A2E0008FEC47 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EC529C9A2E0008FEC47 /* EndPoint.swift */; };
 		08D4D89E29C801900008771A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D4D89D29C801900008771A /* AppDelegate.swift */; };
 		08D4D8A029C801900008771A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D4D89F29C801900008771A /* SceneDelegate.swift */; };
 		08D4D8A229C801900008771A /* MasterTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D4D8A129C801900008771A /* MasterTabViewController.swift */; };
@@ -23,6 +26,9 @@
 		08757EB929C943DF008FEC47 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		08757EBB29C94414008FEC47 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		08757EBE29C9444F008FEC47 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
+		08757EC129C9A0BC008FEC47 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		08757EC329C9A0DE008FEC47 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		08757EC529C9A2E0008FEC47 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		08D4D89A29C801900008771A /* AlexMortyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexMortyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D4D89D29C801900008771A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08D4D89F29C801900008771A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 		08D4D8B429C8086A0008771A /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				08757EC129C9A0BC008FEC47 /* APIService.swift */,
+				08757EC329C9A0DE008FEC47 /* Request.swift */,
+				08757EC529C9A2E0008FEC47 /* EndPoint.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -204,10 +213,13 @@
 			files = (
 				08D4D8A229C801900008771A /* MasterTabViewController.swift in Sources */,
 				08757EBF29C9444F008FEC47 /* EpisodeViewController.swift in Sources */,
+				08757EC629C9A2E0008FEC47 /* EndPoint.swift in Sources */,
 				08757EBA29C943DF008FEC47 /* CharacterViewController.swift in Sources */,
 				08D4D89E29C801900008771A /* AppDelegate.swift in Sources */,
 				08D4D8A029C801900008771A /* SceneDelegate.swift in Sources */,
 				08757EB829C943C1008FEC47 /* LocationViewController.swift in Sources */,
+				08757EC229C9A0BC008FEC47 /* APIService.swift in Sources */,
+				08757EC429C9A0DE008FEC47 /* Request.swift in Sources */,
 				08757EBC29C94414008FEC47 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

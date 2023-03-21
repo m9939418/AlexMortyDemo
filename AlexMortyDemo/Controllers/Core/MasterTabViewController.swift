@@ -11,8 +11,7 @@ class MasterTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-       
+        view.backgroundColor = .systemBackground
     
         setUpTabs()
     }
@@ -34,7 +33,7 @@ class MasterTabViewController: UITabBarController {
         let nav4 = UINavigationController(rootViewController: settingsVC)
         
         nav1.tabBarItem = UITabBarItem(title: "角色",
-                                       image: UIImage(systemName: "persion"),
+                                       image: UIImage(systemName: "person"),
                                        tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "位置",
                                        image: UIImage(systemName: "globe"),
@@ -54,7 +53,5 @@ class MasterTabViewController: UITabBarController {
                            animated: true)
         
     }
-
-
 }
 
