@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class Reqesut{
+final class MERequest{
     private struct Constants {
         static let baseUrl = "https://rickandmortyapi.com/api"
     }
@@ -38,7 +38,7 @@ final class Reqesut{
             string += args
         }
         
-        return ""
+        return string
     }
     
     public var url: URL? {
@@ -58,4 +58,9 @@ final class Reqesut{
         self.pathComponents = pathComponents
         self.queryParam = queryParam
     }
+
+}
+
+extension MERequest {
+    static let listCharactersRequests = MERequest(endPoint: .character)
 }
