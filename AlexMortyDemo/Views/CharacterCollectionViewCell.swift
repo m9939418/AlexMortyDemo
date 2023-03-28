@@ -54,27 +54,23 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
-            lbStatus.heightAnchor.constraint(equalToConstant: 50),
-            lbName.heightAnchor.constraint(equalToConstant: 50),
+            lbStatus.heightAnchor.constraint(equalToConstant: 30),
+            lbName.heightAnchor.constraint(equalToConstant: 30),
             
-            lbStatus.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            lbStatus.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+            lbStatus.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
+            lbStatus.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
             
-            lbName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            lbName.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -5),
+            lbName.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 7),
+            lbName.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -7),
             
             lbStatus.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
-            lbName.bottomAnchor.constraint(equalTo: lbStatus.topAnchor, constant: -3),
+            lbName.bottomAnchor.constraint(equalTo: lbStatus.topAnchor),
             
             ivCover.topAnchor.constraint(equalTo: contentView.topAnchor),
             ivCover.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             ivCover.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             ivCover.bottomAnchor.constraint(equalTo: lbName.topAnchor, constant: -3),
         ])
-        
-        ivCover.backgroundColor = .systemGreen
-        lbName.backgroundColor = .blue
-        lbStatus.backgroundColor = .orange
     }
     
     public func config(with viewModel: CharacterCollectionViewCellViewModel){

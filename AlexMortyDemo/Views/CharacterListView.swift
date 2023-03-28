@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol CharacterListViewDelegate: AnyObject {
+    func rmCharacterListView(
+        characterListView: CharacterListView,
+        didSelectCharacter chartacter: MECharacter
+    )
+}
+
 final class CharacterListView: UIView {
+    public weak var delegate: CharacterListViewDelegate?
+    
     private let viewModel = CharacterListViewViewModel()
     private let spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
@@ -18,7 +27,7 @@ final class CharacterListView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
@@ -41,6 +50,7 @@ final class CharacterListView: UIView {
         addSubViews(collectionView, spinner)
         addConstraints()
         spinner.startAnimating()
+        viewModel.delegate = self
         viewModel.fetchCharacters()
         setUpCollectionView()
     }
@@ -62,13 +72,28 @@ final class CharacterListView: UIView {
     private func setUpCollectionView(){
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
-        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.spinner.stopAnimating()
+//            self.collectionView.isHidden = false
+//            UIView.animate(withDuration: 0.4) {
+//                self.collectionView.alpha = 1
+//            }
+//        }
     }
     
+}
+
+extension CharacterListView: CharacterListViewViewModelDelegate {
+    func didSelectCharacter(_ character: MECharacter) {
+        delegate?.rmCharacterListView(characterListView: self, didSelectCharacter: character)
+    }
+    
+    func didLoadInitCharacters() {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
+    }
 }

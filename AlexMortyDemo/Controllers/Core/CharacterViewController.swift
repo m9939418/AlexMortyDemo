@@ -7,48 +7,18 @@
 
 import UIKit
 
-class CharacterViewController: UIViewController {
+class CharacterViewController: UIViewController, CharacterListViewDelegate {
     private let characterListView = CharacterListView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "角色"
-            
         setUpViews()
-  
-        /// https://rickandmortyapi.com/api/character/?name=rick&status=alive
-//        let request = MERequest(endPoint: .character,
-//                queryParam: [
-//                    URLQueryItem(name: "name", value: "rick"),
-//                    URLQueryItem(name: "status", value: "alive")
-//                ]
-//        )
-//        print(request.url)
-//
-//        APIService.shared.execute(request, excepting: MECharacter.self) { result in
-//            switch result {
-//            case .success:
-//                break
-//            case .failure(let error):
-//                print(String(describing: error))
-//                break
-//            }
-//        }
-        
-//        APIService.shared.execute(.listCharactersRequests, excepting: String.self) { result in
-//            switch result {
-//            case .success(let model):
-//                String(describing: error)
-//                break
-//            case .failure(let error):
-//                String(describing: error)
-//                break
-//            }
-//        }
     }
     
     func setUpViews() {
+        characterListView.delegate = self
         view.addSubview(characterListView)
         NSLayoutConstraint.activate([
             characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -56,5 +26,12 @@ class CharacterViewController: UIViewController {
             characterListView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    func rmCharacterListView(characterListView: CharacterListView, didSelectCharacter chartacter: MECharacter) {
+        let viewModel = CharacterDetailViewModel(character: chartacter)
+        let detailVC = CharacterDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
