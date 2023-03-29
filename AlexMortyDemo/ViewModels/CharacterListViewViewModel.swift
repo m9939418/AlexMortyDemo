@@ -14,6 +14,7 @@ protocol CharacterListViewViewModelDelegate: AnyObject {
 
 final class CharacterListViewViewModel: NSObject {
     public weak var  delegate: CharacterListViewViewModelDelegate?
+    private var isLoadMoreCharacters = false
     
     private var characters: [MECharacter] = []{
         didSet {
@@ -54,6 +55,7 @@ final class CharacterListViewViewModel: NSObject {
     }
     
     public func fetchMoreCharactoers() {
+        isLoadMoreCharacters = true
         
     }
     
@@ -91,13 +93,47 @@ extension CharacterListViewViewModel: UICollectionViewDataSource, UICollectionVi
         let character = characters[indexPath.row]
         delegate?.didSelectCharacter(character)
     }
+    
+    /// 設定Footer UI
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionFooter,
+              shouldShowLoadMoreIndicator,
+              let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: FooterLoadingCollectionReusableView.cellId,
+                for: indexPath
+              ) as? FooterLoadingCollectionReusableView else {
+                  fatalError()
+              }
+        footer.startAnimating()
+        return footer
+    }
+    
+    /// 設定Footer UI 高度
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        guard shouldShowLoadMoreIndicator else {
+            return .zero
+        }
+        return CGSize(width: collectionView.frame.width,
+                      height: 100)
+    }
 }
 
+/// 底部Load More Data
 extension CharacterListViewViewModel: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard shouldShowLoadMoreIndicator else {
-            
             return
         }
+        
+        /// 偵測是否已經滑到列表底部
+        let offset = scrollView.contentOffset.y
+        let totoalContentHeight = scrollView.contentSize.height
+        let totoalScrollViewFixHeight = scrollView.frame.size.height
+        if offset >= (totoalContentHeight - totoalScrollViewFixHeight - 120 ) {
+            print("Scroll Bottom End")
+           
+        }
+        
     }
 }
