@@ -58,6 +58,49 @@ final class MERequest{
         self.pathComponents = pathComponents
         self.queryParam = queryParam
     }
+    
+    convenience init?(url: URL) {
+        let string = url.absoluteString /// https://rickandmortyapi.com/api/character?page=2
+        if !string.contains(Constants.baseUrl) {
+            return nil
+        }
+        /// https://rickandmortyapi.com/api/ -> 空字串
+        let trimmed = string.replacingOccurrences(of: Constants.baseUrl + "/", with: "")    /// trimmed -> character?page=2
+        if trimmed.contains("/") {
+            let components = trimmed.components(separatedBy: "/")
+            if !components.isEmpty {
+                let endPointString = components[0]
+                if let meEndpoint = EndPoint(rawValue: endPointString) {
+                    self.init(endPoint: meEndpoint)
+                    return
+                }
+            }
+        } else if trimmed.contains("?") {
+            let components = trimmed.components(separatedBy: "?")   /// character?page=2
+            if !components.isEmpty, components.count >= 2 {
+                let endPointString = components[0]  /// character
+                let queryItemsString = components[1]    /// page=2
+                let queryItems: [URLQueryItem] = queryItemsString.components(separatedBy: "&").compactMap({
+                    /// $0 -> page=2
+                    guard $0.contains("=") else {
+                        return nil
+                    }
+                    let parts = $0.components(separatedBy: "=")
+                    
+                    return URLQueryItem(
+                        name: parts[0], /// page
+                        value: parts[1] /// 2
+                    )
+                })
+                
+                if let meEndpoint = EndPoint(rawValue: endPointString) {
+                    self.init(endPoint: meEndpoint, queryParam: queryItems)
+                    return
+                }
+            }
+        }
+        return nil
+    }
 
 }
 

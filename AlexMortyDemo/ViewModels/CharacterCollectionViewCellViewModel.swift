@@ -7,10 +7,21 @@
 
 import Foundation
 
-final class CharacterCollectionViewCellViewModel {
+final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
     public let name: String
     public let status: MECharacterStatus
     public let imgUrl: URL?
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(status)
+        hasher.combine(imgUrl)
+    }
+    
+    static func == (lhs: CharacterCollectionViewCellViewModel, rhs: CharacterCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
     
     init(
         name: String,
@@ -32,7 +43,7 @@ final class CharacterCollectionViewCellViewModel {
             completition(.failure(URLError(.badURL)))
             return
         }
-        let request = URLRequest(url: url)
+        _ = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
                 completition(.failure(error ?? URLError(.badServerResponse)))

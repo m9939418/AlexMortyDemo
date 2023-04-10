@@ -27,6 +27,7 @@ final class APIService {
             completion(.failure(ServiceError.failedToCreateRequest))
             return
         }
+        print("API Call: \(reqeust.url?.absoluteString)")
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(error ?? ServiceError.failedToGetData))
