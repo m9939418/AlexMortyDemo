@@ -43,14 +43,15 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
             completition(.failure(URLError(.badURL)))
             return
         }
-        _ = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data, error == nil else {
-                completition(.failure(error ?? URLError(.badServerResponse)))
-                return
-            }
-            completition(.success(data))
-        }
-        task.resume()
+        MEImageLoader.shared.downloadImage(url, completeion: completition)
+//        _ = URLRequest(url: url)
+//        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+//            guard let data = data, error == nil else {
+//                completition(.failure(error ?? URLError(.badServerResponse)))
+//                return
+//            }
+//            completition(.success(data))
+//        }
+//        task.resume()
     }
 }
