@@ -70,8 +70,13 @@ final class MERequest{
             let components = trimmed.components(separatedBy: "/")
             if !components.isEmpty {
                 let endPointString = components[0]
+                var pathComponents: [String] = []
+                if components.count > 1 {
+                    pathComponents = components
+                    pathComponents.removeFirst()
+                }
                 if let meEndpoint = EndPoint(rawValue: endPointString) {
-                    self.init(endPoint: meEndpoint)
+                    self.init(endPoint: meEndpoint, pathComponents: pathComponents)
                     return
                 }
             }
