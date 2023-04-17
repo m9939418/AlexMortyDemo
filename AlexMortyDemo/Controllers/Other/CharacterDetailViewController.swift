@@ -64,19 +64,67 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+//        switch section {
+//        case 0 :
+//            return 1
+//        case 1:
+//            return 8
+//        case 2:
+//            return 20
+//        default:
+//            return 1
+//        }
+        let sectionType = viewModel.sections[section]
+        switch sectionType {
+        case .photo:
+            return 1
+        case .information(let viewModel):
+            return viewModel.count
+        case .episode(let viewModel):
+            return viewModel.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemPink
-        if indexPath.section == 0 {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+//        cell.backgroundColor = .systemPink
+//        if indexPath.section == 0 {
+//            cell.backgroundColor = .systemRed
+//        } else if indexPath.section == 1 {
+//            cell.backgroundColor = .systemCyan
+//        } else {
+//            cell.backgroundColor = .systemBlue
+//        }
+//        return cell
+        let sectionType = viewModel.sections[indexPath.section]
+        switch sectionType {
+        case .photo(let viewModel):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterPhotoCollectionViewCell.cellID,
+                for: indexPath) as? CharacterPhotoCollectionViewCell else {
+                    fatalError()
+                }
             cell.backgroundColor = .systemRed
-        } else if indexPath.section == 1 {
+            cell.configure(with: viewModel)
+            return cell
+        case .information(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterInfoCollectionViewCell.cellID,
+                for: indexPath) as? CharacterInfoCollectionViewCell else {
+                    fatalError()
+                }
             cell.backgroundColor = .systemCyan
-        } else {
+            cell.configure(with: viewModels[indexPath.row])
+            return cell
+        case .episode(let viewModels):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: CharacterEpisodeCollectionViewCell.cellID,
+                for: indexPath) as? CharacterEpisodeCollectionViewCell else {
+                    fatalError()
+                }
             cell.backgroundColor = .systemBlue
+            cell.configure(with: viewModels[indexPath.row])
+            return cell
         }
-        return cell
     }
 }
