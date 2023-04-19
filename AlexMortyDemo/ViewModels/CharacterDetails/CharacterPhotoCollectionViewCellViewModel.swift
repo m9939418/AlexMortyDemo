@@ -8,9 +8,18 @@
 import Foundation
 
 final class CharacterPhotoCollectionViewCellViewModel {
+    private let imageURL: URL?
     
-    init() {
-        
+    init(imageURL: URL?) {
+        self.imageURL = imageURL
+    }
+    
+    public func fetchImage(comletion: @escaping (Result<Data,Error>) -> Void) {
+        guard let imageUrl = imageURL else {
+            comletion(.failure(URLError(.badURL)))
+            return
+        }
+        MEImageLoader.shared.downloadImage(imageUrl, completeion: comletion)
     }
     
 }

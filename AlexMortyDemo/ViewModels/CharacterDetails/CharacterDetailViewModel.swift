@@ -33,20 +33,42 @@ final class CharacterDetailViewModel {
     }
     
     private func setUpSections() {
+        /**
+         let id: Int
+         let name: String
+         let status: MECharacterStatus
+         let species: String
+         let type: String
+         let gender: MECharacterGender
+         let origin: MEOrigin
+         let location: MESingleLocation
+         let image: String
+         let episode: [String]
+         let url: String
+         let created: String
+         */
         sections = [
-            .photo(viewModel: .init()),
+            .photo(viewModel: .init(imageURL: URL(string: character.image))),
             .information(viewModels: [
-                .init(),
-                .init(),
-                .init(),
-                .init()
+                .init(value: character.status.text, title: "Status"),
+                .init(value: character.gender.rawValue, title: "Gender"),
+                .init(value: character.type, title: "Type"),
+                .init(value: character.species, title: "Species"),
+                .init(value: character.origin.name, title: "Origin"),
+                .init(value: character.location.name, title: "Location"),
+                .init(value: character.created, title: "Created"),
+                .init(value: "\(character.episode.count)", title: "Total Episode"),
             ]),
-            .episode(viewModels: [
-                .init(),
-                .init(),
-                .init(),
-                .init()
-            ])
+//            .episode(viewModels: [
+//                .init(),
+//                .init(),
+//                .init(),
+//                .init()
+//            ])
+            .episode(viewModels: character.episode.compactMap({
+                return CharacterEpisodeCollectionViewCellViewModel(episodeDataUrl: URL(string: $0))
+            }))
+
         ]
     }
     

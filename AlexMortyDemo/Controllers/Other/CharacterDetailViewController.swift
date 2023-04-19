@@ -104,7 +104,7 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
                 for: indexPath) as? CharacterPhotoCollectionViewCell else {
                     fatalError()
                 }
-            cell.backgroundColor = .systemRed
+//            cell.backgroundColor = .systemRed
             cell.configure(with: viewModel)
             return cell
         case .information(let viewModels):
