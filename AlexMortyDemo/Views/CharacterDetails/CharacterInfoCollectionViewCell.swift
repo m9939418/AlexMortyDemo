@@ -12,8 +12,9 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
  
     private let lValue: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Earth"
+//        label.text = "Earth"
         label.font = .systemFont(ofSize: 18, weight: .light)
         return label
     }()
@@ -22,7 +23,7 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
     private let lTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Location"
+//        label.text = "Location"
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 20, weight: .medium)
         return label
@@ -32,7 +33,7 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
         iv.contentMode = .scaleAspectFit
-        iv.image = UIImage(systemName: "globe.americas")
+//        iv.image = UIImage(systemName: "globe.americas")
         return iv
     }()
     
@@ -66,7 +67,7 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
             vTitleContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             vTitleContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             vTitleContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            vTitleContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, constant: 0.33),
+            vTitleContainer.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.33),
             
             lTitle.topAnchor.constraint(equalTo: vTitleContainer.topAnchor),
             lTitle.leftAnchor.constraint(equalTo: vTitleContainer.leftAnchor),
@@ -80,17 +81,27 @@ final class CharacterInfoCollectionViewCell: UICollectionViewCell {
             
             lValue.leftAnchor.constraint(equalTo: ivIcon.rightAnchor, constant: 10),
             lValue.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
-            lValue.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 35),
-            lValue.heightAnchor.constraint(equalToConstant: 30)
+            lValue.topAnchor.constraint(equalTo: contentView.topAnchor),
+//            lValue.heightAnchor.constraint(equalToConstant: 30)
+            lValue.bottomAnchor.constraint(equalTo: vTitleContainer.topAnchor)
         ])
 //        lValue.backgroundColor = .red
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        lValue.text = nil
+        lTitle.text = nil
+        ivIcon.image = nil
+        ivIcon.tintColor = .label
+        lTitle.textColor = .label
     }
     
     public func configure(with viewModel: CharacterInfoCollectionViewCellViewModel){
-        
+        lTitle.text = viewModel.title
+        lValue.text = viewModel.displayValue
+        ivIcon.image = viewModel.iconImage
+        ivIcon.tintColor = viewModel.tintColor
+        lTitle.textColor = viewModel.tintColor
     }
 }
