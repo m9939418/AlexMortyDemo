@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MEEpisode: Codable {
+struct MEEpisode: Codable, EpisodeDataRender {
     let id: Int
     let name: String
     let air_date: String

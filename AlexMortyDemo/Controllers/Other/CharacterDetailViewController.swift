@@ -113,7 +113,7 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
                 for: indexPath) as? CharacterInfoCollectionViewCell else {
                     fatalError()
                 }
-            cell.backgroundColor = .systemCyan
+//            cell.backgroundColor = .systemCyan
             cell.configure(with: viewModels[indexPath.row])
             return cell
         case .episode(let viewModels):
@@ -122,7 +122,7 @@ extension CharacterDetailViewController: UICollectionViewDelegate, UICollectionV
                 for: indexPath) as? CharacterEpisodeCollectionViewCell else {
                     fatalError()
                 }
-            cell.backgroundColor = .systemBlue
+//            cell.backgroundColor = .systemBlue
             cell.configure(with: viewModels[indexPath.row])
             return cell
         }
