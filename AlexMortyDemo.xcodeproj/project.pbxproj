@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0862825C29F7B2470097EFC7 /* APICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0862825B29F7B2470097EFC7 /* APICacheManager.swift */; };
 		08757EB829C943C1008FEC47 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EB729C943C1008FEC47 /* LocationViewController.swift */; };
 		08757EBA29C943DF008FEC47 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EB929C943DF008FEC47 /* CharacterViewController.swift */; };
 		08757EBC29C94414008FEC47 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EBB29C94414008FEC47 /* SettingsViewController.swift */; };
@@ -43,9 +44,11 @@
 		08E8E56C29ECDDD300F611DD /* CharacterPhotoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E56B29ECDDD300F611DD /* CharacterPhotoCollectionViewCellViewModel.swift */; };
 		08E8E56E29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E56D29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift */; };
 		08E8E57029ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E56F29ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift */; };
+		08E8E57229F3E32400F611DD /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E57129F3E32400F611DD /* EpisodeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0862825B29F7B2470097EFC7 /* APICacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICacheManager.swift; sourceTree = "<group>"; };
 		08757EB729C943C1008FEC47 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		08757EB929C943DF008FEC47 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		08757EBB29C94414008FEC47 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		08E8E56B29ECDDD300F611DD /* CharacterPhotoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPhotoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		08E8E56D29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		08E8E56F29ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
+		08E8E57129F3E32400F611DD /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				08E8E56029E64E7100F611DD /* MEImageLoader.swift */,
+				0862825B29F7B2470097EFC7 /* APICacheManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				08E8E53829D2854600F611DD /* CharacterDetailViewController.swift */,
+				08E8E57129F3E32400F611DD /* EpisodeDetailViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				08757ED429CB0224008FEC47 /* MESingleLocation.swift in Sources */,
 				08E8E57029ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */,
 				08757EB829C943C1008FEC47 /* LocationViewController.swift in Sources */,
+				0862825C29F7B2470097EFC7 /* APICacheManager.swift in Sources */,
 				08E8E53929D2854600F611DD /* CharacterDetailViewController.swift in Sources */,
 				08E8E53629CF159400F611DD /* CharacterCollectionViewCellViewModel.swift in Sources */,
 				08E8E53229CEE35200F611DD /* Extensions.swift in Sources */,
@@ -361,6 +368,7 @@
 				08757EBC29C94414008FEC47 /* SettingsViewController.swift in Sources */,
 				08E8E56129E64E7100F611DD /* MEImageLoader.swift in Sources */,
 				08E8E53B29D2866200F611DD /* CharacterDetailView.swift in Sources */,
+				08E8E57229F3E32400F611DD /* EpisodeDetailViewController.swift in Sources */,
 				08E8E52B29CEA17D00F611DD /* RMGetAllCharactersResponse.swift in Sources */,
 				08757EC829CB0175008FEC47 /* MECharacter.swift in Sources */,
 				08E8E53429CF13E500F611DD /* CharacterCollectionViewCell.swift in Sources */,

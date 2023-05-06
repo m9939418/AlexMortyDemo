@@ -13,6 +13,10 @@ import UIKit
 final class CharacterDetailViewModel {
     private let character: MECharacter
     
+    public var episodes: [String] {
+        character.episode
+    }
+    
 //    enum SectionType: CaseIterable {
     enum SectionType {
         case photo(viewModel: CharacterPhotoCollectionViewCellViewModel)
