@@ -9,11 +9,10 @@ import UIKit
 
 /// VC show about single spisode
 class EpisodeDetailViewController: UIViewController {
-
-    private let url: URL?
+    private let viewModel: EpisodeDetailViewViewModel
     
     init(url: URL?){
-        self.url = url
+        self.viewModel = .init(endPointUrl: url)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,4 +26,5 @@ class EpisodeDetailViewController: UIViewController {
         view.backgroundColor = .systemGreen
     }
  
+    
 }
