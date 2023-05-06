@@ -9,7 +9,7 @@ import Foundation
 
 
 /// <#Description#>
-enum EndPoint:String, Codable {
+enum EndPoint:String, Codable, CaseIterable, Hashable {
     case character
     case location
     case episode

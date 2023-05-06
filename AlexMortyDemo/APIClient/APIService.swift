@@ -11,9 +11,9 @@ final class APIService {
     
     static let shared = APIService()
     
-    private init(){
-        
-    }
+    private let cacheManager = APICacheManager()
+    
+    private init() {}
     
     enum ServiceError: Error {
         case failedToCreateRequest
@@ -23,20 +23,44 @@ final class APIService {
     public func execute<T: Codable>(_ reqeust: MERequest,
                                     excepting type: T.Type,
                                     completion: @escaping (Result<T, Error>) -> Void){
+        
+        if let cacheData = cacheManager.cacheResponse(
+            for: reqeust.endPoint,
+               url: reqeust.url
+        ) {
+            print("Using cached API Response")
+            do {
+                let result = try JSONDecoder().decode(type.self, from: cacheData)
+                completion(.success(result))
+            }
+            catch {
+                completion(.failure(error))
+            }
+            return
+        }
+        
+        
+        
         guard let urlRequest = self.request(from: reqeust) else {
             completion(.failure(ServiceError.failedToCreateRequest))
             return
         }
-        print("API Call: \(reqeust.url?.absoluteString)")
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        
+//        print("API Call: \(reqeust.url?.absoluteString)")
+        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, _, error in
             guard let data = data, error == nil else {
                 completion(.failure(error ?? ServiceError.failedToGetData))
                 return
             }
-            
+            // Decode response
             do {
-//                let json = try JSONSerialization.jsonObject(with: data)
+                //                let json = try JSONSerialization.jsonObject(with: data)
                 let result = try JSONDecoder().decode(type.self, from: data)
+                self?.cacheManager.setCache(
+                    for: reqeust.endPoint,
+                       url: reqeust.url,
+                       data: data
+                )
                 completion(.success(result))
             }
             catch {
