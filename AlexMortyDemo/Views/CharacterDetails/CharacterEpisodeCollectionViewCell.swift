@@ -74,16 +74,27 @@ final class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
         lAirDate.text = nil
     }
     
-    public func configure(with viewModel: CharacterEpisodeCollectionViewCellViewModel){
+//    public func configure(with viewModel: CharacterEpisodeCollectionViewCellViewModel){
+//        viewModel.registerForData { [weak self] data in
+////            print(data.name)
+////            print(data.air_date)
+////            print(data.episode)
+//            // Main Queue
+//            self?.lSeason.text = data.episode
+//            self?.lName.text = "Episode " + data.name
+//            self?.lAirDate.text = "Aired on " + data.air_date
+//        }
+//        viewModel.fetchEpisode()
+//    }
+//
+    public func configure(with viewModel: CharacterEpisodeCollectionViewCellViewModel) {
         viewModel.registerForData { [weak self] data in
-//            print(data.name)
-//            print(data.air_date)
-//            print(data.episode)
             // Main Queue
             self?.lSeason.text = data.episode
             self?.lName.text = "Episode " + data.name
             self?.lAirDate.text = "Aired on " + data.air_date
         }
         viewModel.fetchEpisode()
+//        contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }
