@@ -36,12 +36,15 @@ final class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .tertiarySystemBackground
-        contentView.layer.cornerRadius = 8
-        contentView.layer.borderWidth = 2
-        contentView.layer.borderColor = UIColor.systemBlue.cgColor
+        setUpLayer()
         contentView.addSubViews(lSeason, lName, lAirDate)
         setUpConstraints()
     
+    }
+    
+    private func setUpLayer() {
+        contentView.layer.cornerRadius = 8
+        contentView.layer.borderWidth = 2
     }
     
     required init?(coder: NSCoder) {
@@ -95,6 +98,6 @@ final class CharacterEpisodeCollectionViewCell: UICollectionViewCell {
             self?.lAirDate.text = "Aired on " + data.air_date
         }
         viewModel.fetchEpisode()
-//        contentView.layer.borderColor = viewModel.borderColor.cgColor
+        contentView.layer.borderColor = viewModel.borderColor.cgColor
     }
 }

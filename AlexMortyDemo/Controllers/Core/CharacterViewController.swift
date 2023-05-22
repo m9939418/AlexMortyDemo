@@ -15,6 +15,19 @@ class CharacterViewController: UIViewController, CharacterListViewDelegate {
         view.backgroundColor = .systemBackground
         title = "角色"
         setUpViews()
+        addSearchButton()
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTopShare))
+    }
+    
+    
+    @objc
+    private func didTopShare() {
+        let vc = RMSearchViewController(config: .init(type: .character))
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func setUpViews() {

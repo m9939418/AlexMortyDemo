@@ -18,6 +18,17 @@ class EpisodeViewController: UIViewController, EpisodeListViewDelegate {
         view.backgroundColor = .systemBackground
         title = "事件"
         setUpViews()
+        addSearchButton()
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTopShare))
+    }
+    
+    
+    @objc
+    private func didTopShare() {
+        
     }
     
     func setUpViews() {

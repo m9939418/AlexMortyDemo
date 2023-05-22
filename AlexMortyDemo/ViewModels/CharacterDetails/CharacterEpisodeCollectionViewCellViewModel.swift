@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol EpisodeDataRender {
@@ -19,6 +20,8 @@ final class CharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
     private var isFetching = false
     private var dataBlock: ((EpisodeDataRender) -> Void)?
     
+    public let borderColor: UIColor
+    
     private var episode: MEEpisode? {
         didSet {
             guard let model = episode else {
@@ -30,8 +33,9 @@ final class CharacterEpisodeCollectionViewCellViewModel: Hashable, Equatable {
     
     //MARK: - Init
     
-    init(episodeDataUrl: URL?) {
+    init(episodeDataUrl: URL?, borderColor: UIColor = .systemBlue) {
         self.episodeDataUrl = episodeDataUrl
+        self.borderColor = borderColor
     }
     
     

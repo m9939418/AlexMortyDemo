@@ -35,8 +35,8 @@ final class EpisodeListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(CharacterCollectionViewCell.self,
-                                forCellWithReuseIdentifier: CharacterCollectionViewCell.cellId)
+        collectionView.register(CharacterEpisodeCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CharacterEpisodeCollectionViewCell.cellID)
         /// 設定Footer
         collectionView.register(FooterLoadingCollectionReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
@@ -52,7 +52,6 @@ final class EpisodeListView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemBackground
-//        addSubview(spinner)
         addSubViews(collectionView, spinner)
         addConstraints()
         spinner.startAnimating()
