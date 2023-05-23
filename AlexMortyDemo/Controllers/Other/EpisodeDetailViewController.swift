@@ -8,7 +8,7 @@
 import UIKit
 
 /// VC show about single spisode
-class EpisodeDetailViewController: UIViewController {
+class EpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate {
     private let viewModel: EpisodeDetailViewViewModel
     
     private let detailView = EpisodeDetailView()
@@ -16,7 +16,8 @@ class EpisodeDetailViewController: UIViewController {
     //MARK: - Init
     
     init(url: URL?){
-        self.viewModel = .init(endPointUrl: url)
+//        self.viewModel = .init(endPointUrl: url)
+        self.viewModel = EpisodeDetailViewViewModel(endPointUrl: url)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -31,6 +32,9 @@ class EpisodeDetailViewController: UIViewController {
         view.addSubViews(detailView)
         addConstraints()
         title = "Episdoe"
+        
+        viewModel.delegates = self
+        viewModel.fetchEpisodeData()
     }
  
     private func addConstraints() {
@@ -40,5 +44,11 @@ class EpisodeDetailViewController: UIViewController {
             detailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             detailView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
         ])
+    }
+    
+    // MARK: - Delegate
+    
+    func didFetchEpisodeDetails() {
+        <#code#>
     }
 }
