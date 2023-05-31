@@ -20,8 +20,15 @@ class EpisodeDetailViewViewModel {
         }
     }
     
+    enum SectionType {
+        case information(viewModels: [EpisodeInfoCollectionViewCellViewModel])
+        case characters(viewModels: [CharacterCollectionViewCellViewModel])
+    }
+    
     public weak var delegates: RMEpisodeDetailViewViewModelDelegate?
    
+    public private(set) var sections: [SectionType] = []
+    
     // MARK: - init
     
     init(endPointUrl: URL?) {
@@ -75,9 +82,11 @@ class EpisodeDetailViewViewModel {
                 }
             }
         }
-        
-        
-        
-    }
-    
+        group.notify(queue: .main) {
+            self.dataTuple = (
+                episode,
+                characters
+            )
+        }
+    }    
 }

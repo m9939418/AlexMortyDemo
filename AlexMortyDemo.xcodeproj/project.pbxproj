@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080717F82A26F09700D0CA51 /* EpisodeInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080717F72A26F09700D0CA51 /* EpisodeInfoCollectionViewCell.swift */; };
 		081829EC2A064BBC006409F4 /* EpisodeDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081829EB2A064BBC006409F4 /* EpisodeDetailViewViewModel.swift */; };
 		081829EE2A064CAA006409F4 /* EpisodeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081829ED2A064CAA006409F4 /* EpisodeDetailView.swift */; };
 		081829F12A065746006409F4 /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081829F02A065746006409F4 /* EpisodeListView.swift */; };
@@ -51,9 +52,11 @@
 		08E8E56E29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E56D29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift */; };
 		08E8E57029ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E56F29ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift */; };
 		08E8E57229F3E32400F611DD /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E8E57129F3E32400F611DD /* EpisodeDetailViewController.swift */; };
+		08FA13DA2A24A54E00B7607C /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FA13D92A24A54E00B7607C /* EpisodeInfoCollectionViewCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080717F72A26F09700D0CA51 /* EpisodeInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		081829EB2A064BBC006409F4 /* EpisodeDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewViewModel.swift; sourceTree = "<group>"; };
 		081829ED2A064CAA006409F4 /* EpisodeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailView.swift; sourceTree = "<group>"; };
 		081829F02A065746006409F4 /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		08E8E56D29ECDDE500F611DD /* CharacterInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		08E8E56F29ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEpisodeCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		08E8E57129F3E32400F611DD /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		08FA13D92A24A54E00B7607C /* EpisodeInfoCollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeInfoCollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080717F62A26F02B00D0CA51 /* EpisodeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				081829ED2A064CAA006409F4 /* EpisodeDetailView.swift */,
+				080717F72A26F09700D0CA51 /* EpisodeInfoCollectionViewCell.swift */,
+			);
+			path = EpisodeDetail;
+			sourceTree = "<group>";
+		};
 		081829EF2A06571B006409F4 /* Episode */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,10 +204,10 @@
 		08D4D8B329C808630008771A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				08FA13D82A24A50500B7607C /* EpisodeDetail */,
 				08E8E56A29ECDD8A00F611DD /* CharacterDetails */,
 				08E8E52729CEA03200F611DD /* CharacterListViewViewModel.swift */,
 				08E8E53529CF159400F611DD /* CharacterCollectionViewCellViewModel.swift */,
-				081829EB2A064BBC006409F4 /* EpisodeDetailViewViewModel.swift */,
 				082D2FF52A0B463600314967 /* EpisodeListViewViewModel.swift */,
 			);
 			path = ViewModels;
@@ -243,11 +256,11 @@
 		08E8E52C29CEA2FE00F611DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				080717F62A26F02B00D0CA51 /* EpisodeDetail */,
 				081829EF2A06571B006409F4 /* Episode */,
 				08E8E56229ECD9AD00F611DD /* CharacterDetails */,
 				08E8E56329ECD9D000F611DD /* Character */,
 				08E8E53E29D2DD4300F611DD /* FooterLoadingCollectionReusableView.swift */,
-				081829ED2A064CAA006409F4 /* EpisodeDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +304,15 @@
 				08E8E56F29ECDDF500F611DD /* CharacterEpisodeCollectionViewCellViewModel.swift */,
 			);
 			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
+		08FA13D82A24A50500B7607C /* EpisodeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				081829EB2A064BBC006409F4 /* EpisodeDetailViewViewModel.swift */,
+				08FA13D92A24A54E00B7607C /* EpisodeInfoCollectionViewCellViewModel.swift */,
+			);
+			path = EpisodeDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +391,7 @@
 				0821C9DF2A1B6EA900708E20 /* RMSearchViewController.swift in Sources */,
 				08E8E52E29CEA35800F611DD /* CharacterListView.swift in Sources */,
 				08757EBF29C9444F008FEC47 /* EpisodeViewController.swift in Sources */,
+				080717F82A26F09700D0CA51 /* EpisodeInfoCollectionViewCell.swift in Sources */,
 				08757ED229CB020E008FEC47 /* MEOrigin.swift in Sources */,
 				08757EC629C9A2E0008FEC47 /* EndPoint.swift in Sources */,
 				081829EE2A064CAA006409F4 /* EpisodeDetailView.swift in Sources */,
@@ -405,6 +428,7 @@
 				082D2FFA2A0B4B9C00314967 /* RMGetAllEpisodesResponse.swift in Sources */,
 				08E8E53429CF13E500F611DD /* CharacterCollectionViewCell.swift in Sources */,
 				08757ECE29CB01DD008FEC47 /* MEEpisode.swift in Sources */,
+				08FA13DA2A24A54E00B7607C /* EpisodeInfoCollectionViewCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

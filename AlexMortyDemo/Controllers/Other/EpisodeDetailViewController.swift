@@ -32,7 +32,7 @@ class EpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewMode
         view.addSubViews(detailView)
         addConstraints()
         title = "Episdoe"
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
         viewModel.delegates = self
         viewModel.fetchEpisodeData()
     }
@@ -46,9 +46,14 @@ class EpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewMode
         ])
     }
     
+    @objc
+    private func didTapShare() {
+        
+    }
+    
     // MARK: - Delegate
     
     func didFetchEpisodeDetails() {
-        <#code#>
+        detailView.configure(with: viewModel)
     }
 }
