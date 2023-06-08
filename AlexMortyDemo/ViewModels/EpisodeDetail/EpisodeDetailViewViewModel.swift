@@ -14,8 +14,9 @@ protocol RMEpisodeDetailViewViewModelDelegate: AnyObject {
 
 class EpisodeDetailViewViewModel {
     private let endPointURL: URL?
-    private var dataTuple: (MEEpisode, [MECharacter])? {
+    private var dataTuple: (episode: MEEpisode, characters: [MECharacter])? {
         didSet {
+            createCellViewModels()
             delegates?.didFetchEpisodeDetails()
         }
     }
@@ -27,7 +28,7 @@ class EpisodeDetailViewViewModel {
     
     public weak var delegates: RMEpisodeDetailViewViewModelDelegate?
    
-    public private(set) var sections: [SectionType] = []
+    public private(set) var ceilViewModels: [SectionType] = []
     
     // MARK: - init
     
@@ -40,6 +41,30 @@ class EpisodeDetailViewViewModel {
     
     
     // MARK: Private
+    private func createCellViewModels() {
+        guard let dataTuple = dataTuple else {
+            return
+        }
+
+        let episode = dataTuple.episode
+        let characters = dataTuple.characters
+        ceilViewModels = [
+            .information(viewModels: [
+                .init(title: "Episdoe Name", value: episode.name),
+                .init(title: "Air Date", value: episode.air_date),
+                .init(title: "Episdoe", value: episode.episode),
+                .init(title: "Created", value: episode.created),
+            ]),
+            .characters(viewModels: characters.compactMap({ characters in
+                return CharacterCollectionViewCellViewModel(
+                    name: characters.name,
+                    status: characters.status,
+                    imgUrl: URL(string: characters.image)
+                )
+            }))
+        ]
+    }
+    
     
     /// Fetch backing episode model
     public func fetchEpisodeData() {
@@ -84,8 +109,8 @@ class EpisodeDetailViewViewModel {
         }
         group.notify(queue: .main) {
             self.dataTuple = (
-                episode,
-                characters
+                episode: episode,
+                characters: characters
             )
         }
     }    
