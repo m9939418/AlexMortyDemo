@@ -8,6 +8,11 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    private let viewModel = RMSettingsViewViewModel(cellViewModel: RMSettingsOption.allCases.compactMap({
+        return RMSettingsCellViewModel(type: $0)
+    }))
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
