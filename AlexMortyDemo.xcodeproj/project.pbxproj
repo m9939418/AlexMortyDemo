@@ -17,6 +17,7 @@
 		0836D0152A4EBFA800AAFF89 /* RMSettingsViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836D0142A4EBFA800AAFF89 /* RMSettingsViewViewModel.swift */; };
 		0836D0172A4EC01C00AAFF89 /* RMSettingsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836D0162A4EC01C00AAFF89 /* RMSettingsCellViewModel.swift */; };
 		0836D0192A4EC12C00AAFF89 /* RMSettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836D0182A4EC12C00AAFF89 /* RMSettingsOption.swift */; };
+		0836D01E2A550DBF00AAFF89 /* RMSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0836D01D2A550DBF00AAFF89 /* RMSettingsView.swift */; };
 		0862825C29F7B2470097EFC7 /* APICacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0862825B29F7B2470097EFC7 /* APICacheManager.swift */; };
 		08757EB829C943C1008FEC47 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EB729C943C1008FEC47 /* LocationViewController.swift */; };
 		08757EBA29C943DF008FEC47 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08757EB929C943DF008FEC47 /* CharacterViewController.swift */; };
@@ -69,6 +70,7 @@
 		0836D0142A4EBFA800AAFF89 /* RMSettingsViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsViewViewModel.swift; sourceTree = "<group>"; };
 		0836D0162A4EC01C00AAFF89 /* RMSettingsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsCellViewModel.swift; sourceTree = "<group>"; };
 		0836D0182A4EC12C00AAFF89 /* RMSettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsOption.swift; sourceTree = "<group>"; };
+		0836D01D2A550DBF00AAFF89 /* RMSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSettingsView.swift; sourceTree = "<group>"; };
 		0862825B29F7B2470097EFC7 /* APICacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICacheManager.swift; sourceTree = "<group>"; };
 		08757EB729C943C1008FEC47 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		08757EB929C943DF008FEC47 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,14 @@
 				0836D0182A4EC12C00AAFF89 /* RMSettingsOption.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		0836D01A2A54147900AAFF89 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				0836D01D2A550DBF00AAFF89 /* RMSettingsView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		08757EB629C941E0008FEC47 /* Core */ = {
@@ -273,6 +283,7 @@
 		08E8E52C29CEA2FE00F611DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0836D01A2A54147900AAFF89 /* SwiftUI */,
 				080717F62A26F02B00D0CA51 /* EpisodeDetail */,
 				081829EF2A06571B006409F4 /* Episode */,
 				08E8E56229ECD9AD00F611DD /* CharacterDetails */,
@@ -428,6 +439,7 @@
 				0862825C29F7B2470097EFC7 /* APICacheManager.swift in Sources */,
 				08E8E53929D2854600F611DD /* CharacterDetailViewController.swift in Sources */,
 				0836D0172A4EC01C00AAFF89 /* RMSettingsCellViewModel.swift in Sources */,
+				0836D01E2A550DBF00AAFF89 /* RMSettingsView.swift in Sources */,
 				08E8E53629CF159400F611DD /* CharacterCollectionViewCellViewModel.swift in Sources */,
 				08E8E53229CEE35200F611DD /* Extensions.swift in Sources */,
 				08757EC229C9A0BC008FEC47 /* APIService.swift in Sources */,
