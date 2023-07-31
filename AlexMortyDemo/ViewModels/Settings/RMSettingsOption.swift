@@ -16,6 +16,25 @@ enum RMSettingsOption: CaseIterable {
     case viewSeries
     case viewCode
     
+    var targetUrl: URL? {
+        switch self {
+        case .rateApp:
+            return nil
+        case .contactUs:
+            return URL(string: "https://buzzorange.com/techorange/2021/06/08/ai-text2app-android-development/")
+        case .terms:
+            return URL(string: "https://ithelp.ithome.com.tw/articles/10261382")
+        case .privacy:
+            return URL(string: "https://tw.news.yahoo.com/vtuber%E5%A0%B1%E6%96%B0%E8%81%9E-%E8%95%8A%E7%B1%B3remi-%E5%94%B1%E5%8A%9F%E4%BA%86%E5%BE%97-%E7%B6%B2%E5%8F%8B%E7%B4%9B%E5%96%8A-%E6%88%80%E6%84%9B%E4%BA%86-094012323.html")
+        case .apiReference:
+            return URL(string: "https://rickandmortyapi.com/")
+        case .viewSeries:
+            return URL(string: "https://tw.news.yahoo.com/topic/legislature-live/")
+        case .viewCode:
+            return URL(string: "https://tw.stock.yahoo.com/fund/")
+        }
+    }
+    
     var displayTitle: String {
         switch self {
         case .rateApp:
