@@ -5,6 +5,7 @@
 //  Created by AlexYang on 2023/3/21.
 //
 
+import StoreKit
 import SafariServices
 import UIKit
 import SwiftUI
@@ -58,6 +59,9 @@ class SettingsViewController: UIViewController {
             present(vc, animated: true)
         } else if options == .rateApp {
             //Show rate prompt
+            if let windowScene = view.window?.windowScene {
+                SKStoreReviewController.requestReview(in:windowScene)
+            }
         }
     }
 
