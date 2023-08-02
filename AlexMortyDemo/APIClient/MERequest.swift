@@ -112,4 +112,5 @@ final class MERequest{
 extension MERequest {
     static let listCharactersRequests = MERequest(endPoint: .character)
     static let listEpisodesRequests = MERequest(endPoint: .episode)
+    static let listLocationsRequests = MERequest(endPoint: .location)
 }
